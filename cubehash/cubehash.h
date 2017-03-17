@@ -35,6 +35,10 @@ HashReturn Update(hashState *state, const BitSequence *data, DataLength databitl
 HashReturn Final(hashState *state, BitSequence *hashval);
 HashReturn Hash(int hashbitlen, const BitSequence *data, DataLength databitlen, BitSequence *hashval);
 
+/*
+Simple CubeHash class by Vlasov Aleksander 
+2017
+*/
 
 class CubeHash
 {
