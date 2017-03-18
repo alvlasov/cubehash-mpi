@@ -1,3 +1,5 @@
+@echo off
 cd C:\MPIFolder
-mpiexec -n 2 Debug/HashMPI.exe
+mpiexec -n 5 Debug/HashMPI.exe
 pause
+exit

@@ -66,8 +66,9 @@ public:
         return message_;
     }
 
-    string getHash() const
+    string getHash()
     {
+		hashStringGen();
         return hash_str_;
     }
 
@@ -85,26 +86,35 @@ public:
             throw 1;
         if (Final(&state_, hash_) != SUCCESS)
             throw 1;
-        hashStringGen();
     }
 
     void setHash(string hash)
     {
         if (hash.length() != bits_ / 4)
             throw 1;
-        message_ = string("UNKNOWN MESSAGE");
+        message_ = string(" ");
         for (size_t i = 0; i < hash.length() / 2; i++)
         {
                hash_[i] = (crypto_uint8)strtoul(hash.substr(i * 2, 2).c_str(), 0, 16);
         }
-        hashStringGen();
     }
 
-    void show() const
+    void show()
     {
+		hashStringGen();
         cout << "Mesg: " << message_ << endl;
         cout << "Hash: " << hash_str_ << endl << endl;
     }
+
+	int hashStrLength() const
+	{
+		return bits_ / 4;
+	}
+
+	int hashBitLength() const
+	{
+		return bits_;
+	}
 
 private:
 
